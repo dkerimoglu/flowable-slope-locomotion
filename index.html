@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Anonymous Submission</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="assets/videos/video-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>
+      Robust Bipedal Locomotion on Flowable Slopes<br>
+      via Foot-Driven Terrain Manipulation
+    </h1>
+    <p class="authors">Anonymous authors</p>
+    <p class="venue-note">Manuscript under review</p>
+  </div>
+</section>
+
+  <main class="container">
+    <!-- SHORT SUMMARY -->
+    <section class="summary-box">
+      <p>
+        This project investigates how foot-driven terrain manipulation can improve
+        bipedal locomotion on inclined flowable substrates. The study identifies
+        foot-terrain interaction principles that reduce slip, limit excessive
+        substrate yielding, and support more robust uphill locomotion.
+      </p>
+    </section>
+
+    <!-- ABSTRACT -->
+    <section>
+      <h2>Abstract</h2>
+      <p>
+        Bipedal robots are challenging to control because they operate close to instability, 
+        where small variations in foot-terrain contact can rapidly destabilize locomotion. 
+        On rigid terrain, bipedal robots mitigate this fragility by using well-established 
+        contact mechanics and control strategies. On flowable surfaces such as granular slopes, 
+        foot contact can induce large surface deformations and solid–fluid–like transitions, 
+        coupling terrain effects with robot dynamics, leading to underperformance or failure. 
+        This is partly due to the lack of reliable methods to represent the dynamics of 
+        flowable terrain, making it difficult to account for terrain effects in locomotion design. 
+        Here, we investigate how controlling terrain response can improve bipedal locomotion on 
+        granular slopes by studying the terradynamics of ``cleated" feet, thin plates emanating 
+        from the foot soles. Systematic studies of a small-scale (1.4 kg) robophysical biped 
+        reveal that cleats with sparse and dense spacing lead to excessive terrain yielding 
+        and resistance, respectively, degrading performance and leading to failure. 
+        An intermediate cleat spacing distributes interaction forces to maintain substrate 
+        stresses near (or below) the yield threshold, enabling walking on granular slopes 
+        up to 30°. Guided by these principles, we design a foot that actively adjusts cleat 
+        depth and accommodates both rigid and granular terrain. We also demonstrate that the
+         principles of effective foot-terrain interaction translate to a larger (15 kg) 
+         autonomous biped. Our study presents an alternative to conventional ``body-centric" 
+         robot control approaches, which regulate terrain-induced effects through body motion, 
+         by instead regulating terrain interactions through ``limb-centric" approach.
+      </p>
+    </section>
+
+    <section>
+      <h2>Motivation</h2>
+      <p>
+        Legged robots are envisioned for deployment in unstructured environments-from dryland 
+        search operations to planetary surfaces where regolith and loose soil dominate the landscape. 
+        Yet most bipedal locomotion research has been developed and validated on flat, hard floors. 
+        The gap between laboratory performance and field-relevant capability remains wide, and 
+        terrain deformability is one of its least-addressed dimensions. Bridging this gap requires 
+        rethinking of how robot feet interact with the ground — treating the terrain not as a rigid 
+        reaction surface, but as a material whose response can be shaped by design.
+      </p>
+
+      <figure class="figure-wide">
+      <img src="assets/figures/Motivation_Gait.png" alt="Overview">
+      <figcaption>
+        Overview of cleat-foot morphology with bipedal robots on granular slopes. Left)
+        Primary failure modes on granular slopes for long-legged robots are pitching and slipping.
+        Right) Open-loop slope-adept gait and the locomotory phases. In our slope-adept gait, the CoM
+        motion is constrained during the Single Support phase to generate no torque on the ankle joint.
+        The CoM progression is achieved during the Double Support phase.
+      </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Approach</h2>
+
+      <p>
+        Our study combines controlled robophysical locomotion experiments,
+        granular intrusion measurements, visual analysis of substrate deformation,
+        adaptive foot-terrain interaction experiments, and validation on a larger
+        bipedal platform. Our experiments connect local foot-terrain
+        mechanics to whole-body locomotion performance.
+
+        <figure class="figure-wide">
+        <img src="assets/figures/Robots.png" alt="Robots">
+        <figcaption>
+          Robots used in our study. Left) BLUEY (Bipedal Locomotor for Understanding and Exploring Yielding terrains) 
+          is constrained by a planarizer, walking in the sagittal plane. The inset shows no cleat and a cleated foot. 
+          Right) 3D and untethered HECTOR (Humanoid for Enhanced ConTrol and Open-source Research) robot on a granular slope testbed. 
+        </figcaption>
+        </figure>        
+      </p>
+    </section>      
+
+    <section>
+      <h2>Results</h2>
+      <subsection>
+        <h2>Robophysical Experiments</h2>
+        <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/SR_Website_Robophysics.mp4" type="video/mp4">
+          </video>
+          <h3>Robophysical biped on inclined granular terrain</h3>
+          <p class="caption">
+            BLUEY walking up a granular slope of 20 degree slope with different cleated foot configurations. 
+            (i) no cleat, (ii) sparse cleat (12 cm), (iii) effective cleat (4 cm), and (iv) dense cleat (1 cm) walking. 
+            Middle) Displacement measurements relative to a commanded 100 cm walking distance are shown for each foot. 
+            The inset illustrates the pitching angle of the robot for each foot configuration. 
+            The gait parameters are kept constant across each trial: stride length of 10 cm, CoM height of 18 cm, 
+            and step period of 1 s (see Supplementary Materials for details). The no-cleat case achieves 6 cm walking distance (blue curve); 
+            the sparse-cleat fails (red); and the effective (orange) and dense-cleats (purple) reach 82 cm and 67 cm 
+            walking distances, respectively. The foot configurations that achieve successful walking exhibit limited 
+            pitch angles, whereas sparse cleat spacing leads to pitching failure. Right) Heatmap of BLUEY's slipping under 
+            varying cleat depth, spacing, and terrain slope. Each grid component represents the mean slip value of three trials.
+          </p>
+        </div>
+      </subsection>
+
+      <subsection>
+      <h2>Cleat Physics Experiments</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <h2>Failure Mechanisms</h2>
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C2D1_u20_sw_PIV.mp4" type="video/mp4">
+          </video>
+          <h3>Trailing edge failure with sparse cleats</h3>
+          </div>
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C2D1_u30_sw_PIV.mp4" type="video/mp4">
+          </video>
+          <h3>Insufficient traction failure with sparse cleats</h3>
+          </div>
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C13D3_l0_sw_PIV2.mp4" type="video/mp4">
+          </video>
+          <h3>Incomplete placement of dense cleats on level</h3> 
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h2>Success Mechanisms</h2>
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C4D1_u20_sw_PIV.mp4" type="video/mp4">
+          </video>
+          <h3>Effective cleats solidifing slopes </h3>
+          </div>
+
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C4D1_u30_sw_PIV.mp4" type="video/mp4">
+          </video>
+          <h3>Effective cleats enhancing traction </h3>
+          </div>
+
+          <div class="video-card">
+          <video controls playsinline>
+            <source src="assets/videos/C13D3_u20_sw_PIV.mp4" type="video/mp4">
+          </video>
+          <h3>Dense cleats fully pentrating on slopes</h3>
+          </div>          
+          
+        </div>
+      </div>
+      Particle Image Velocimetry (PIV) images illustrating granular media - cleated foot interactions 
+      as BLUEY walks next to a clear sidewall.
+
+        <div class="video-card">
+          <h2>Granular Intrusion and Drag Experiments</h2>
+          <video controls playsinline>
+            <source src="assets/videos/IntrusionDrag_Website.mp4" type="video/mp4">
+          </video>
+             <p class="caption">
+            Dual plate intrusion and drag experiments.
+          </p>
+        </div>
+
+        <figure class="figure-wide">
+        <img src="assets/figures/Fig_CleatForce.png" alt="Intrusion and Drag">
+        <figcaption>
+          A) Dual plates of 1 cm spacing are penetrated 3 cm deep into the granular substrate at a constant 
+          rate of 1.4 cm/s with motion direction perpendicular to the surface. After a 1-second settling period, 
+          the plates are dragged parallel to the surface in the downward slope direction. Blue and red curves 
+          represent the mean values of 3 trials for level and 20 degree incline experiments, respectively. 
+          The solid and dashed curves represent forces in the normal and tangential directions to the surface, 
+          respectively. Positive resistive forces in both directions act opposite to the direction of 
+          intrusion or drag. B) Intrusion and drag experiments with 5 cm spaced plates.
+        </figcaption>
+        </figure>
+
+      </subsection>
+      
+      <subsection>
+        <h2>Testing cleated-foot interaction principles on challenging conditions</h2>
+                
+          <div class="video-card">
+            <h2>Robotic foot with retractable cleats</h2>    
+            <video controls playsinline>
+            <source src="assets/videos/Act_Cleat_Website.mp4" type="video/mp4">
+          </video>
+          <h3>Retractable cleats</h3>
+          <p class="caption">
+            Experiments with the retractable foot mechanism on rigid and granular slopes. A)-B) Robot failures 
+            with no and fully extended cleats, respectively. C) Time-lapse of BLUEY walking using the adaptive 
+            cleat depth mechanism. The vertical dashed line represents the starting point for all the trials. 
+            D) BLUEY displacement, pitch angle, and retractable cleat-foot actuator current reading. 
+            The actuated cleats facilitate locomotion on complex surfaces: granular and rigid terrains.
+          </p>
+          </div>    
+
+          <div class="video-card">
+            <h2>Hector Experiments</h2>
+          <video controls playsinline>
+            <source src="assets/videos/Hector_Website.mp4" type="video/mp4">
+          </video>
+          <h3>HECTOR Experiments</h3>
+          <p class="caption">
+            HECTOR locomotion experiments with different foot configurations. A) HECTOR walking with (i) no cleat, 
+            (ii) sparse cleat,  (iii) effective cleat, and (iv) dense cleat configurations. 
+            HECTOR is initiated to walk at the positions depicted by dashed vertical lines in all trials. 
+            B) The displacement performance of HECTOR under closed-loop MPC control. 
+            The maximum displacement variations of the shaded regions are 20 cm, 12 cm, 4 cm, and 28 cm, for no, 
+            sparse, effective, and dense cleats, respectively.
+          </p>
+          </div>    
+      </subsection>
+    </section>
+
+    <section>
+      <h2>Supplementary Information</h2>
+      <subsection>
+        <figure class="figure-wide">
+        <h2>Effect of cleat depth on granular forces</h2>
+        <img src="assets/figures/Cleat_IntDrag_SpacingDepth.png" alt="Depth Intrusion and Drag">
+        <figcaption>
+          Intrusion and drag of dual plates of varying spacing and depth. A) illustrates the peak granular 
+          resistive forces that the dual plates experience during intrusion on level and 30$^\circ$ inclines. 
+          B) illustrates the initial peak resistive forces experienced by the dual plates as they are dragged down the slope.
+        </figcaption>
+        </figure>
+
+        <figure class="figure-wide">
+          <h2>Dual-Plate PIV Analysis</h2>
+        <img src="assets/figures/DualPlate_PIV.png" alt="DualPlate_PIV">
+        <figcaption>
+          Sidewall PIV experiments with dual-plates. A-B) Dual plates of 1 cm and 5 cm spacing are first inserted 
+          and then dragged on level ground, respectively. C-D) Dual plates of 1 cm and 5 cm spacing are inserted 
+          and dragged down the slope on a 30 $^\circ$ incline.
+        </figcaption>
+        </figure>
+      </subsection>
+    </section>
+
+    <section>
+      <h2>Supplementary Figures</h2>
+        <figure class="figure-wide">
+        <img src="assets/figures/BlueyTestBed.png" alt="BlueyTestBed">
+        <figcaption>
+          Experimental testbed used to conduct BLUEY locomotion experiments.
+        </figcaption>
+        </figure>
+
+        <figure class="figure-wide">
+        <img src="assets/figures/Hector_Testbed.png" alt="Hector_Testbed">
+        <figcaption>
+          Experimental testbed used to conduct HECTOR locomotion experiments.
+        </figcaption>
+        </figure>        
+
+        <figure class="figure-wide">
+        <img src="assets/figures/ActuatedCleat.png" alt="ActuatedCleat">
+        <figcaption>
+          Robotic foot used to perform adaptive cleat extension/retraction experiments using contact sensing.
+        </figcaption>
+        </figure>           
+        
+        <figure class="figure-wide">
+        <img src="assets/figures/DualPlate_Apparatus.png" alt="DualPlate_Apparatus">
+        <figcaption>
+          Dual-plate intrusion and drag apparatus mounted on the poppy seed testbed.
+        </figcaption>
+        </figure>          
+    </section>
+
+    <section>
+      <h2>Supplementary Notes</h2>
+      <p>
+        This website is intentionally anonymized for review purposes. It does not
+        include author names, affiliations, acknowledgments, lab names, personal
+        links, or identifying repository links.
+      </p>
+    </section>
+
+  </main>
+
+</body>
+</html>
